@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-
-const kPrimarycolor = Color(0xFFDAD3C8);
-const kSceondarycolor = Color(0xFFEEE3D0);
+const darkgreen = Color(0xFF355a4d);
+const green = Color(0xFF349E2B);
+const deepgreen = Color(0xFF01663a);
+const kPrimarycolor = Color(0xFFFFFFFF);
+const kSceondarycolor = Color(0xFFD8F3D7);
 const kTextcolor = Colors.black;
 
 const String kemailnullerror = "Please Enter the email";

@@ -15,22 +15,7 @@ class MenuScreenState extends State<MenuScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        backgroundColor: kPrimarycolor,
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: Text(
-            "Menu",
-            style: TextStyle(
-              color: Colors.brown,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          centerTitle: true,
-        ),
-        body: Body(),
-      ),
+      child: Body(),
     );
   }
 }

@@ -29,8 +29,7 @@ class _BodyState extends State<Body> {
                 crossAxisSpacing: 10,
                 children: List.generate(Items.length, (index) {
                   return GestureDetector(
-                    onTap: () => Navigator.pushNamed(context, DetailsPage.id,
-                        arguments: Productdetails_Args(product: Items[index])),
+                    onTap: () {},
                     child: Container(
                       padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
@@ -51,7 +50,7 @@ class _BodyState extends State<Body> {
                               ),
                               child: Flexible(
                                   child: Text(
-                                    '\$${Items[index].pricing.toString()}',
+                                    '\$${Items[index].price}',
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w600,
@@ -64,7 +63,7 @@ class _BodyState extends State<Body> {
                             alignment: Alignment.bottomRight,
                             child: Flexible(
                                 child: Text(
-                                  Items[index].Name,
+                                  Items[index].name,
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,

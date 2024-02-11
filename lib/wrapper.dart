@@ -1,7 +1,7 @@
+import 'package:coffeeft/screens/Bottom_Nav_Bar.dart';
 import 'package:coffeeft/sizeconfig.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:coffeeft/screens/HomeScreen/Home_Screen.dart';
 import 'package:coffeeft/screens/loginscreen/login_screen.dart';
 import 'package:coffeeft/services/auth_service.dart';
 
@@ -16,8 +16,7 @@ class Wrapper extends StatelessWidget {
     stream: auth.authStateChanges,
       builder: (context, snapshot) {
       if(snapshot.hasData)
-        return Home_Screen();
-      print("here");
+        return Bottom_Nav();
       return LoginScreen();
       } ,);
   }

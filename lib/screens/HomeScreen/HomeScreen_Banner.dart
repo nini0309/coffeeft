@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:coffeeft/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:coffeeft/sizeconfig.dart';
 class HomeScreenBanner extends StatefulWidget {
@@ -57,17 +58,17 @@ class _HomeScreenBannerState extends State<HomeScreenBanner> {
               the number of items in this list. */
               buildContainers(
                 1,
-                  "Cappuccinos",
-                  "at flat 20% off!",
+                  "Now get",
+                  "instant loans!",
               ),
               buildContainers(
                 2,
-                "Get a free Espresso",
-                "every Tuesday!",),
+                "Increase your",
+                "farming income!",),
               buildContainers(
                 3,
-                "For orders above 500",
-                "flat 10% off",),
+                "Get zero",
+                "interest EMIs",),
             ],
 
           ),
@@ -89,7 +90,7 @@ class _HomeScreenBannerState extends State<HomeScreenBanner> {
             width: pagenumber == index ? 25 : 10,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: pagenumber==index ? Colors.brown : Colors.grey.shade400,
+              color: pagenumber==index ? darkgreen : Colors.grey.shade400,
             ),
           );
   }

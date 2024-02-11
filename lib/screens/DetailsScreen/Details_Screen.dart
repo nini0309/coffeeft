@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:coffeeft/Models/Products.dart';
 import 'package:coffeeft/constants.dart';
 import 'DetailsScreen_Body.dart';
 
 
-class DetailsPage extends StatelessWidget {
-  const DetailsPage({Key? key}) : super(key: key);
-  static const String id = "Details_Screen";
+class DetailsPage extends StatefulWidget {
+  DetailsPage({
+    super.key,
+    required this.image,
+    this.name,
+    this.limit
+  });
+  final image;
+  final name;
+  final limit;
 
   @override
+  State<DetailsPage> createState() => _DetailsPageState();
+}
+
+class _DetailsPageState extends State<DetailsPage> {
+  @override
   Widget build(BuildContext context) {
-    final Productdetails_Args arguments =
-        ModalRoute.of(context)!.settings.arguments as Productdetails_Args;
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true,
@@ -46,15 +55,12 @@ class DetailsPage extends StatelessWidget {
           ),
         ),
         body: Body(
-          product: arguments.product,
+          image: widget.image,
+          name: widget.name,
+          limit: widget.limit,
         ),
       ),
     );
   }
 }
 
-class Productdetails_Args {
-  late Product product;
-
-  Productdetails_Args({required this.product});
-}

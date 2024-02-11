@@ -1,3 +1,4 @@
+import 'package:coffeeft/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:coffeeft/sizeconfig.dart';
 
@@ -11,7 +12,7 @@ class Commonbutton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Colors.black,
+        color: darkgreen,
       ),
       height: 60,
       width: double.infinity,

@@ -14,6 +14,7 @@ class touchscreenbody extends StatelessWidget {
         Center(
           child: Image.asset(
             "assets/images/$imgno.png",
+            fit: BoxFit.cover,
             height: getproportionatescreenheight(350),
           ),
         ),

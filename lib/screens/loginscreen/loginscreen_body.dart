@@ -1,3 +1,4 @@
+import 'package:coffeeft/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:coffeeft/sizeconfig.dart';
 import 'Form_Login.dart';
@@ -18,7 +19,7 @@ class Body extends StatelessWidget {
             Text(
               "Welcome back!",
               style: TextStyle(
-                color: Colors.brown,
+                color: darkgreen,
                 fontSize: 30,
               ),
               textAlign: TextAlign.center,

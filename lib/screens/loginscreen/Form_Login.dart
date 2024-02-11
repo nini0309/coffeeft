@@ -39,7 +39,7 @@ class _BuildformState extends State<Buildform> {
             children: [
               Checkbox(
                 value: false,
-                activeColor: Colors.brown,
+                activeColor: darkgreen,
                 onChanged: (value) {
                   setState(() {
                   });
@@ -135,7 +135,7 @@ class _BuildformState extends State<Buildform> {
                     "Sign Up",
                     style: kimptext.copyWith(
                       decoration: TextDecoration.underline,
-                      color: Colors.brown.shade600,
+                      color: darkgreen,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -155,6 +155,7 @@ class _BuildformState extends State<Buildform> {
         style: TextStyle(
           fontFamily: "OpenSans",
           fontSize: 15,
+          color: Colors.black,
         ),
         decoration: buildInputDecoration(
             "Email", "Enter your email here!", Icons.mail));

@@ -6,7 +6,6 @@ import 'package:coffeeft/screens/HomeScreen/Home_Screen.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:coffeeft/sizeconfig.dart';
 import 'package:coffeeft/screens/MenuScreen/MenuScreen.dart';
-import 'package:coffeeft/screens/LikeScreen/LikeScreen.dart';
 
 
 class Bottom_Nav extends StatefulWidget {
@@ -24,7 +23,6 @@ class _Bottom_NavState extends State<Bottom_Nav> {
     Home_Screen(),
     MenuScreen(),
     CartScreen(),
-    LikeScreen(),
     Profile_Screen(),
   ];
 
@@ -37,50 +35,48 @@ class _Bottom_NavState extends State<Bottom_Nav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.grey.shade900,
+      backgroundColor: kPrimarycolor,
       body: _pages[_selectedIndex],
       bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-          color: Colors.black,
+        padding: EdgeInsets.symmetric(
+          horizontal: getproportionatescreenwidth(20),
+          vertical: getproportionatescreenheight(10),
         ),
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: getproportionatescreenwidth(20),
-            vertical: getproportionatescreenheight(10),
-          ),
-          child: GNav(
-            backgroundColor: Colors.black,
-            color: Colors.white,
-            activeColor: Colors.white,
-            gap: 8,
-            tabBackgroundColor: Colors.grey.shade900,
-            padding: EdgeInsets.all(12),
-            selectedIndex: _selectedIndex,
-            onTabChange: _onitemtapped,
-            tabs: [
-              GButton(
-                icon: Icons.home_outlined,
-                text: "Home",
-              ),
-              GButton(
-                icon: Icons.coffee,
-                text: "Menu",
-              ),
-              GButton(
-                icon: Icons.shopping_cart_outlined,
-                text: "Cart",
-              ),
-              GButton(
-                icon: Icons.favorite_border,
-                text: "Likes",
-              ),
-              GButton(
-                icon: Icons.person_outline,
-                text: "Profile",
-              ),
-            ],
-          ),
+        decoration: BoxDecoration(
+          //borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+          color: darkgreen,
+        ),
+        child: GNav(
+          backgroundColor: darkgreen,
+          color: Colors.white,
+          activeColor: Colors.white,
+          gap: 8,
+          tabBackgroundColor: Color(0xff406c5d),
+          padding: EdgeInsets.all(12),
+          selectedIndex: _selectedIndex,
+          onTabChange: _onitemtapped,
+          tabs: [
+            GButton(
+              icon: Icons.home,
+              text: "Home",
+            ),
+            GButton(
+              icon: Icons.account_balance,
+              text: "Apply",
+            ),
+            GButton(
+              icon: Icons.credit_score,
+              text: "Loans",
+            ),
+            // GButton(
+            //   icon: Icons.favorite_border,
+            //   text: "Likes",
+            // ),
+            GButton(
+              icon: Icons.person,
+              text: "Profile",
+            ),
+          ],
         ),
       ),
     );

@@ -15,9 +15,9 @@ class Profile_Screen extends StatelessWidget {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: Text(
-            "Your Profile",
+            "My Profile",
             style: TextStyle(
-              color: Colors.brown,
+              color: darkgreen,
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),

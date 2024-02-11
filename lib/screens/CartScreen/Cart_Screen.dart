@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:coffeeft/constants.dart';
 import 'package:coffeeft/Models/Cart_Data.dart';
 import 'CartScreen_Body.dart';
-import 'CartScreen_CheckOutCard.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);
@@ -18,18 +17,10 @@ class CartScreen extends StatelessWidget {
           title: Column(
             children: [
               Text(
-                "Your Cart",
+                "My Loans",
                 style: TextStyle(
-                  color: Colors.brown,
+                  color: darkgreen,
                   fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                "${ItemsList.length} Items",
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -38,7 +29,8 @@ class CartScreen extends StatelessWidget {
           centerTitle: true,
         ),
         body: Body(),
-        bottomNavigationBar: CheckOutCard(),
+        //bottomSheet: CheckOutCard(),
+        //bottomNavigationBar: CheckOutCard(),
       ),
     );
   }

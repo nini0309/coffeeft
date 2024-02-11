@@ -17,24 +17,15 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -52,11 +43,41 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyDfhZQ3yMh7JKJw4bR9xevWUhkJ6JM-6sk',
+    appId: '1:148007581176:web:e112f9ccbbacbecf94920d',
+    messagingSenderId: '148007581176',
+    projectId: 'coffeeft-31b1e',
+    authDomain: 'coffeeft-31b1e.firebaseapp.com',
+    storageBucket: 'coffeeft-31b1e.appspot.com',
+    measurementId: 'G-6P1EPESYKT',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyD0odoISlg-yiKQ9Jk0iL-AJHaOcx7NetQ',
     appId: '1:148007581176:android:8fa49c3a62b43ac094920d',
     messagingSenderId: '148007581176',
     projectId: 'coffeeft-31b1e',
     storageBucket: 'coffeeft-31b1e.appspot.com',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyCRRrSWSnOey2xpiKyM_8dChosXcqhC9SY',
+    appId: '1:148007581176:ios:152fea2848b55f8094920d',
+    messagingSenderId: '148007581176',
+    projectId: 'coffeeft-31b1e',
+    storageBucket: 'coffeeft-31b1e.appspot.com',
+    iosClientId: '148007581176-dup54c4j8i8onv99p9j4u8c4agk3e2v7.apps.googleusercontent.com',
+    iosBundleId: 'com.example.coffeeft',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyCRRrSWSnOey2xpiKyM_8dChosXcqhC9SY',
+    appId: '1:148007581176:ios:152fea2848b55f8094920d',
+    messagingSenderId: '148007581176',
+    projectId: 'coffeeft-31b1e',
+    storageBucket: 'coffeeft-31b1e.appspot.com',
+    iosClientId: '148007581176-dup54c4j8i8onv99p9j4u8c4agk3e2v7.apps.googleusercontent.com',
+    iosBundleId: 'com.example.coffeeft',
   );
 }

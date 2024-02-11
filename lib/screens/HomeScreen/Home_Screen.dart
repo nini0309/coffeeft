@@ -17,13 +17,7 @@ class _Home_ScreenState extends State<Home_Screen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-        color: kPrimarycolor,
-        child: Scaffold(
-          body: Body(),
-
-        ),
-      ),
+      child: Body(),
     );
   }
 }

@@ -23,7 +23,7 @@ class _BodyState extends State<Body> {
           Text(
             "Register your Account",
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.brown, fontSize: 30),
+            style: TextStyle(color: darkgreen, fontSize: 30),
           ),
           SizedBox(
             height: getproportionatescreenheight(30),

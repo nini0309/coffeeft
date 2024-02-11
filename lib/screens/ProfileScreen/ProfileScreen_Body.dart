@@ -1,11 +1,17 @@
+import 'package:coffeeft/constants.dart';
+import 'package:coffeeft/screens/CibilScreen/cibil.dart';
+import 'package:coffeeft/wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:coffeeft/sizeconfig.dart';
+import 'package:coffeeft/services/auth_service.dart';
+import 'package:provider/provider.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final auth = Provider.of<Auth>(context);
     return SizedBox(
       height: MediaQuery.of(context).size.height,
       child: ListView(
@@ -38,9 +44,18 @@ class Body extends StatelessWidget {
                 SizedBox(
                   height: getproportionatescreenheight(40),
                 ),
-                build_ProfileTiles(
-                  TileTitle: "My Account",
-                  leading: Icons.person,
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CibilScreen(),
+                        ));
+                  },
+                  child: build_ProfileTiles(
+                    TileTitle: "My Cibil Score",
+                    leading: Icons.person,
+                  ),
                 ),
                 build_ProfileTiles(
                   TileTitle: "Notifications",
@@ -54,9 +69,18 @@ class Body extends StatelessWidget {
                   TileTitle: "Contact Us",
                   leading: Icons.help,
                 ),
-                build_ProfileTiles(
-                  TileTitle: "Sign Out",
-                  leading: Icons.logout,
+                GestureDetector(
+                  onTap: () async {
+                    await auth.signOut();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Wrapper()),
+                    );
+                  },
+                  child: build_ProfileTiles(
+                    TileTitle: "Sign Out",
+                    leading: Icons.logout,
+                  ),
                 ),
               ],
             ),
@@ -85,13 +109,13 @@ class build_ProfileTiles extends StatelessWidget {
       width: double.infinity,
       height: getproportionatescreenheight(60),
       decoration: BoxDecoration(
-        color: Colors.grey.shade300,
+        color: Colors.grey.shade200,
         borderRadius: BorderRadius.circular(20),
       ),
       child: ListTile(
         leading: Icon(
           leading,
-          color: Colors.black,
+          color: darkgreen,
           size: 30,
         ),
         title: Text(

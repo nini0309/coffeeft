@@ -1,59 +1,72 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Product {
-  late String Name, Description;
+  late String name, description;
   late String imageurl;
-  late int nft, pricing;
+  late String nft, price;
   late bool isfav;
-  late int id;
+  late String id;
 
   Product({
-    required this.Name,
-    required this.Description,
-    required this.pricing,
-    //required this.nft,
+    required this.name,
+    required this.description,
+    required this.price,
+    this.nft = '5000',
     required this.imageurl,
     this.isfav = false,
-    required this.id,
+    this.id = '0'
   });
+
+  factory Product.fromFirestore(
+      DocumentSnapshot<Map<String, dynamic>> snapshot,
+      ) {
+    final data = snapshot.data();
+    return Product(
+        name: data!['name'],
+        description: data['description'],
+        price: data['price'],
+        nft: data['nft'],
+        imageurl: data['imageurl']);
+  }
 }
 
 List<Product> Items = [
   Product(
-    Name: "Americano with Coffee spread",
-    Description: "It's more than a standard Black Coffee with a taste of blended coffee from within",
-    pricing: 100,
+    name: "Americano with Coffee spread",
+    description:
+        "It's more than a standard Black Coffee with a taste of blended coffee from within",
+    price: "100",
     imageurl: "assets/Types/Americano/1.png",
     isfav: true,
-    id: 1,
+    id: "1",
   ),
-
   Product(
-    Name: "Decaf with extra Caffeine",
-    Description: "It's more than a standard Black Coffee!",
-    pricing: 150,
+    name: "Decaf with extra Caffeine",
+    description: "It's more than a standard Black Coffee!",
+    price: "150",
     imageurl: "assets/Types/Decaf/4.png",
-    id: 2,
+    id: "2",
   ),
   Product(
-    Name: "Irish with extra cream and cocoa",
-    Description: "It's more than a standard Black Coffee!",
-    pricing: 170,
+    name: "Irish with extra cream and cocoa",
+    description: "It's more than a standard Black Coffee!",
+    price: '170',
     imageurl: "assets/Types/Irish/1.png",
-    id: 3,
+    id: '3',
   ),
   Product(
-    Name: "Macchiato with Chocolate flavourings",
-    Description: "It's more than a standard Black Coffee!",
-    pricing: 200,
+    name: "Macchiato with Chocolate flavourings",
+    description: "It's more than a standard Black Coffee!",
+    price: '200',
     imageurl: "assets/Types/Macchiato/1.png",
     isfav: true,
-    id: 4,
+    id: '4',
   ),
   Product(
-    Name: "Mocha with shivered with more toppings",
-    Description: "It's more than a standard Black Coffee!",
-    pricing: 150,
+    name: "Mocha with shivered with more toppings",
+    description: "It's more than a standard Black Coffee!",
+    price: '150',
     imageurl: "assets/Types/Mocha/1.png",
-    id: 5,
+    id: '5',
   ),
 ];

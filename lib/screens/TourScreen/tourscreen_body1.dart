@@ -1,3 +1,5 @@
+import 'package:coffeeft/constants.dart';
+import 'package:coffeeft/wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:coffeeft/screens/loginscreen/login_screen.dart';
 import 'tourbody_component.dart';
@@ -21,15 +23,15 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
   List<Map<String, String>> data = [
     {
       "imgno": "1",
-      "text": "Nothing is better than\n a coffee to start your day!",
+      "text": "Helping Farmers\n earn more!",
     },
     {
       "imgno": "2",
-      "text": "A coffee a day\n keeps the grumpy away!",
+      "text": "Best platform\n for money lending!",
     },
     {
       "imgno": "3",
-      "text": "Today's good mood is sponsored by a coffee!",
+      "text": "Help farmers, help the country!",
     }
   ];
 
@@ -104,10 +106,10 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                     child: Padding(
                       padding: const EdgeInsets.only(top: 15, left: 15),
                       child: Text(
-                        "CoffeeFT",
+                        "Kisan Seva",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: Colors.brown.shade500,
+                            color: darkgreen,
                             fontSize: 30
                         ),
                       ),
@@ -123,7 +125,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                         left: 15,
                       ),
                       child: Text(
-                        "Buy Coffee, Get Crypto",
+                        "Farmer Loans, Made Easy",
                         style: TextStyle(
                           color: Colors.grey.shade700,
                         ),
@@ -138,7 +140,10 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                       child: Commonbutton(
                         "Start",
                         () {
-                          Navigator.pushNamed(context, LoginScreen.id);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Wrapper()),
+                          );
                         },
                       ),
                     ),
@@ -158,7 +163,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
       height: 10,
       width: currpos == index ? 30 : 10,
       decoration: BoxDecoration(
-        color: currpos == index ? Colors.brown : Colors.grey.shade700,
+        color: currpos == index ? darkgreen : Colors.grey.shade700,
         borderRadius: BorderRadius.circular(6),
       ),
     );

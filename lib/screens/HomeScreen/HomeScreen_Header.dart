@@ -17,7 +17,7 @@ class HomeHeader extends StatelessWidget {
       child: Row(
         children: [
           MapLocation(),
-          Essentials(Icons.shopping_cart_outlined, 0, () {
+          Essentials(Icons.credit_score_outlined, 0, () {
             Navigator.pushNamed((context), CartScreen.id);
           }),
           SizedBox(
@@ -37,24 +37,32 @@ class MapLocation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
         child: Container(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(8),
       margin: EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
-          color: Colors.grey.shade300, borderRadius: BorderRadius.circular(20)),
+          color: Colors.grey.shade200, borderRadius: BorderRadius.circular(20)),
       child: Row(
         children: [
-          IconButton(onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => MapScreen(),),);
-          }, icon: Icon(Icons.location_on_rounded)),
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => MapScreen(),
+                  ),
+                );
+              },
+              icon: Icon(Icons.location_on_rounded)),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Kandivali East',
-              style: TextStyle(color: Colors.black,
-              fontSize: 18),),
-              Text('Mumbai, India',
-                style: TextStyle(color: Colors.grey,
-                  fontSize: 12),),
+              Text(
+                'Kandivali East',
+                style: TextStyle(color: Colors.black, fontSize: 18),
+              ),
+              Text(
+                'Mumbai, India',
+                style: TextStyle(color: Colors.grey, fontSize: 12),
+              ),
             ],
           )
         ],

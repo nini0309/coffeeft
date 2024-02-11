@@ -21,7 +21,7 @@ class Essentials extends StatelessWidget {
             width: getproportionatescreenwidth(120),
             height: getproportionatescreenheight(65),
             decoration: BoxDecoration(
-              color: Colors.grey.shade300,
+              color: Colors.grey.shade200,
               borderRadius: BorderRadius.circular(20),
             ),
             child: Icon(

@@ -21,7 +21,7 @@ class _MapScreenState extends State<MapScreen> {
           title: Text(
             "Our Locations",
             style: TextStyle(
-              color: Colors.brown,
+              color: darkgreen,
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
@@ -44,10 +44,12 @@ class _MapScreenState extends State<MapScreen> {
                 minZoomLevel: 5,
                 maxZoomLevel: 16,
                 searchBarBackgroundColor: Colors.transparent,
-                zoomButtonsBackgroundColor: Colors.black,
-                locationButtonBackgroundColor: Colors.black,
+                searchBarTextColor: Colors.black,
+                zoomButtonsBackgroundColor: green,
+                locationButtonBackgroundColor: green,
                 selectLocationButtonStyle: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.black)),
+                    backgroundColor: MaterialStateProperty.all(green)),
+                selectLocationTextColor: Colors.black,
                 trackMyPosition: true,
                 onPicked: (pickedData) {
                 }));

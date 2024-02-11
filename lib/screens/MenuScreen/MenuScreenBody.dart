@@ -1,9 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:coffeeft/Models/Products.dart';
+import 'package:coffeeft/screens/DetailsScreen/Details_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:coffeeft/constants.dart';
-import 'package:coffeeft/screens/DetailsScreen/Details_Screen.dart';
 import 'package:coffeeft/sizeconfig.dart';
-import 'package:coffeeft/Models/Products.dart';
-import 'package:coffeeft/screens/HomeScreen/HomeScreen_Carousel.dart';
+import 'package:coffeeft/cards.dart';
+
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -13,89 +15,60 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  //final _products = FirebaseFirestore.instance.collection('products');
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Padding(
             padding: EdgeInsets.symmetric(
               horizontal: getproportionatescreenwidth(40),
             ),
-            child: SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
-              child: GridView.count(
-                physics: ScrollPhysics(),
-                shrinkWrap: true,
-                crossAxisCount: 2,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-                children: List.generate(Items.length, (index) {
-                  return GestureDetector(
-                    onTap: () => Navigator.pushNamed(context, DetailsPage.id,
-                        arguments: Productdetails_Args(product: Items[index])),
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(Items[index].imageurl),
-                        ),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Column(
-                        children: [
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: Container(
-                              padding: EdgeInsets.all(4),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(6),
-                              ),
-                              child: Flexible(
-                                  child: Text(
-                                '\$${Items[index].pricing.toString()}',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              )),
-                            ),
-                          ),
-                          Spacer(),
-                          Align(
-                            alignment: Alignment.bottomRight,
-                            child: Flexible(
-                                child: Text(
-                              Items[index].Name,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  shadows: [
-                                    Shadow(
-                                        // bottomLeft
-                                        offset: Offset(-1.5, -1.5),
-                                        color: Colors.black),
-                                    Shadow(
-                                        // bottomRight
-                                        offset: Offset(1.5, -1.5),
-                                        color: Colors.black),
-                                    Shadow(
-                                        // topRight
-                                        offset: Offset(1.5, 1.5),
-                                        color: Colors.black),
-                                    Shadow(
-                                        // topLeft
-                                        offset: Offset(-1.5, 1.5),
-                                        color: Colors.black),
-                                  ]),
-                            )),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                }),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  SizedBox(
+                    height: getproportionatescreenheight(15),
+                  ),
+                  Text(
+                "Loans",
+                style: TextStyle(
+                    color: darkgreen,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
               ),
-            )));
+              SizedBox(
+                height: getproportionatescreenheight(15),
+              ),
+              LoanCards(),
+              SizedBox(
+                height: getproportionatescreenheight(20),
+              ),
+              Text(
+                "Insurance",
+                style: TextStyle(
+                    color: darkgreen,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: getproportionatescreenheight(15),
+              ),
+              InsuranceCards(),
+              SizedBox(
+                height: getproportionatescreenheight(20),
+              ),
+              Text(
+                "Government Schemes",
+                style: TextStyle(
+                    color: darkgreen,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
+              ),
+                  SizedBox(
+                    height: getproportionatescreenheight(15),
+                  ),
+                  SchemeCards(),
+            ])));
   }
 }

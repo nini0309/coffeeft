@@ -1,31 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:coffeeft/sizeconfig.dart';
-import 'package:coffeeft/Models/Products.dart';
 
 class Image_Preview extends StatefulWidget {
   const Image_Preview({
     super.key,
-    required this.product,
+    required this.imageurl,
   });
 
-  final Product product;
+  final imageurl;
 
   @override
   State<Image_Preview> createState() => _Image_PreviewState();
 }
 
 class _Image_PreviewState extends State<Image_Preview> {
-  int SelectedImage = 0;
 
   @override
   Widget build(BuildContext context) {
+    print(widget.imageurl);
     return SizedBox(
       //height: getproportionatescreenheight(300),
       width: double.infinity,
-      child: AspectRatio(
-        aspectRatio: 1,
-        child: Image.asset(widget.product.imageurl),
-      ),
+      child: Image.asset(widget.imageurl),
     );
   }
 }

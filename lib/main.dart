@@ -1,5 +1,8 @@
 import 'package:coffeeft/firebase_options.dart';
+import 'package:coffeeft/screens/MenuScreen/MenuScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:provider/provider.dart';
 import 'package:coffeeft/screens/CartScreen/Cart_Screen.dart';
 import 'package:coffeeft/screens/DetailsScreen/Details_Screen.dart';
@@ -14,11 +17,12 @@ import 'screens/ForgotpassScreen/Forget_Screen.dart';
 import 'screens/Bottom_Nav_Bar.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:coffeeft/services/auth_service.dart';
-import 'package:coffeeft/sizeconfig.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await dotenv.load(fileName: ".env");
+  Gemini.init(apiKey: 'AIzaSyCgwgpKdSlmuKTx662AyT1TCaZMkc96LYI', enableDebugging: true);
   runApp(const MyApp());
 }
 
@@ -34,17 +38,17 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: buildThemeData(),
-        home: Wrapper(),
+        home: Tourscreen(),
         routes: {
           Tourscreen.id: (context) => Tourscreen(),
           LoginScreen.id: (context) => LoginScreen(),
           ForgotScreen.id: (context) => ForgotScreen(),
           SignUp.id: (context) => SignUp(),
           Home_Screen.id: (context) => Home_Screen(),
-          DetailsPage.id: (context) => DetailsPage(),
           CartScreen.id: (context) => CartScreen(),
           Profile_Screen.id: (context) => Profile_Screen(),
           Bottom_Nav.id: (context) => Bottom_Nav(),
+          MenuScreen.id: (context) => MenuScreen(),
         },
       ),
     );

@@ -13,7 +13,7 @@ class TextFieldHome extends StatelessWidget {
       height: getproportionatescreenheight(60),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Colors.grey.shade300,
+        color: Colors.grey.shade200,
       ),
       child: TextField(
         textInputAction: TextInputAction.next,
